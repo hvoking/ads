@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Ubuntu';
+  background-color: rgba(23, 23, 32, 1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color:transparent;
+}
+.App {
+  overflow: hidden;
+  display: grid;
+}

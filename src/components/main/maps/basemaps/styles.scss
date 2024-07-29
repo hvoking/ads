@@ -1,0 +1,16 @@
+.basemaps-parent-wrapper {
+  position: absolute;
+  right: 6px;
+  top: 35px;
+  padding-top: 100px;
+  padding-bottom: 5px;
+  display: grid;
+  z-index: 3;
+  cursor: pointer;
+  background: rgba(33, 33, 43, 1);
+  border-radius: 5px;
+}
+.basemaps-image {
+  padding: 5px;
+  width: 18px;
+}

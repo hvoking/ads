@@ -1,0 +1,24 @@
+.calculator-wrapper {
+  background-color: rgba(33, 33, 43, 1);
+  border-radius: 20px;
+}
+.calculator-item-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 0.8em;
+}
+.calculator-item {
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 3px;
+  text-align: center;
+}
+.calculator-text {
+  color: rgba(255, 255, 255, 0.8);
+  padding-top: 5px;
+}

@@ -1,0 +1,59 @@
+.right-images-wrapper {
+	display: grid;
+	height: calc(100% - 5px);
+	overflow-y: scroll;
+	padding-left: 20px;
+	padding-right: 10px;
+}
+.right-pictures {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 5px;
+}
+.pictures-box {
+	display: grid;
+	grid-template-columns: 12px auto;
+}
+.right-pictures-item {
+	display: grid;
+	grid-template-columns: min-content auto;
+	font-size: 0.6em;
+	cursor: pointer;
+}
+.right-images-wrapper::-webkit-scrollbar {
+  width: 15px;
+  background: rgba(33, 33, 43, 1);
+}
+.right-images-wrapper::-webkit-scrollbar-thumb {
+  border-right: 5px solid rgba(33, 33, 43, 1);
+  background: #555;
+}
+.pdf-cancel-cross {
+	width: 12px;
+	padding: 5px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+.pdf-pictures-img {
+	padding: 5px;
+}
+.pdf-pictures-description-wrapper {
+	display: grid;
+	grid-template-columns: auto min-content;
+}
+.pdf-pictures-description {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+	font-weight: 580;
+}
+
+@media screen and (max-width: 1000px) {
+	.pdf-images-wrapper {
+		padding-right: 20px;
+	}
+	.pdf-pictures-box {
+		font-size: 1.2em;
+	}
+}

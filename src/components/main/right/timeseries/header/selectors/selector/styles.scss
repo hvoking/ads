@@ -1,0 +1,11 @@
+.prices-tooltip {
+	position: absolute;
+	z-index: 6;
+	background-color: rgba(33, 33, 43, 1);
+	border: 1px solid rgba(255, 255, 255, 1);
+	border-radius: 5px;
+	padding: 5px;
+	top: -34px;
+	left: -10px;
+	font-size: 0.8em;
+}
