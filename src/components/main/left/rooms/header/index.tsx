@@ -18,7 +18,11 @@ export const Header = () => {
 				Principais tipologias
 			</div>
 			<img 
-				src={rooms !== null ? "static/main/refresh/refresh_white.svg" : "static/main/refresh/refresh_gray.svg"}
+				src={
+					rooms !== null ? 
+					process.env.PUBLIC_URL + "/static/icons/refresh_white.svg" : 
+					process.env.PUBLIC_URL + "/static/icons/refresh_gray.svg"
+				}
 				alt="refresh" 
 				width="17px" 
 				onClick={onClick}

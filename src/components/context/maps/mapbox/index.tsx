@@ -14,7 +14,7 @@ export const useMapbox = () => {
 
 export const MapboxProvider = ({children}: any) => {
   const [ currentBasemap, setCurrentBasemap ] = useState("mapbox://styles/generativa/clhqor7c101lh01pe52myfwik");
-  const { viewport, setMarker } = useGeo();
+  const { viewport } = useGeo();
 
   const mapRef = useRef<any>();
   const pdfMapRef = useRef<any>();
@@ -33,10 +33,6 @@ export const MapboxProvider = ({children}: any) => {
       essential: true,
     });
 
-    setMarker({
-      longitude: viewport.longitude, 
-      latitude: viewport.latitude
-    })
   }, [ viewport ]);
   
   return (

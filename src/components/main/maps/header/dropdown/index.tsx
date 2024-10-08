@@ -4,7 +4,7 @@ import { FiltersDropdown } from './type';
 import './styles.scss';
 
 // Context imports
-import { useIsoPolygonApi } from '../../../../context/api/isoPolygon';
+import { useIsochroneApi } from '../../../../context/api/isochrone';
 import { usePropertyType } from '../../../../context/filters/property';
 import { useCategory } from '../../../../context/filters/category';
 
@@ -12,7 +12,7 @@ export const Dropdown = () => {
 	const { 
 		routingProfile, setRoutingProfile, 
 		contoursMinutes, setContoursMinutes 
-	} = useIsoPolygonApi();
+	} = useIsochroneApi();
 
 	const { 
 		propertyName, businessName, 
@@ -23,8 +23,8 @@ export const Dropdown = () => {
 	const { categoryDict, currentView, setCategoryId } = useCategory();
 
 	const transportListOfValues: any = {
-		"walking": "static/main/maps/header/walking-active.svg",
-		"driving": "static/main/maps/header/driving-active.svg"
+		"walking": process.env.PUBLIC_URL + "/static/iso/walking-active.svg",
+		"driving": process.env.PUBLIC_URL + "/static/iso/driving-active.svg"
 	}
 
 	const minutesDict: any = {

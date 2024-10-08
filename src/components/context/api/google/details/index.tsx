@@ -3,7 +3,7 @@ import { useState, useEffect, useContext, createContext } from 'react';
 
 // Context imports
 import { useGeo } from '../../../filters/geo';
-import { useIsoPolygonApi } from '../../isoPolygon';
+import { useIsochroneApi } from '../../isochrone';
 
 // Variable imports
 import { cities, data } from '../../../../main/utils/cities';
@@ -18,7 +18,7 @@ export const useGoogleDetailsApi = () => {
 
 export const GoogleDetailsApiProvider = ({children}: any) => {
 	const { placeId, setPlaceCoordinates, setCityId } = useGeo();
-	const { setInitialMarker } = useIsoPolygonApi();
+	const { setInitialMarker } = useIsochroneApi();
 	const [ googleDetailsData, setGoogleDetailsData ] = useState<any>(null);
 	
 	useEffect(() => {

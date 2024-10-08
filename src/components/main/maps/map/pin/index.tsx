@@ -6,43 +6,36 @@ import './styles.scss';
 
 // Context imports
 import { useGeo } from '../../../../context/filters/geo';
-import { useIsoPolygonApi } from '../../../../context/api/isoPolygon';
+import { useIsochroneApi } from '../../../../context/api/isochrone';
 
 // Third-party imports
 import { Marker } from 'react-map-gl';
 
 export const Pin = () => {
-	const { initialMarker, setInitialMarker } = useIsoPolygonApi();
-	const { marker, setMarker, setPlaceCoordinates } = useGeo();
-
-	const onMarkerDrag = useCallback((event: any) => {
-		setMarker({
-			longitude: event.lngLat.lng,
-			latitude: event.lngLat.lat
-		});
-	}, []);
+	const { initialMarker, setInitialMarker } = useIsochroneApi();
+	const { viewport, setViewport } = useGeo();
 
 	const onMarkerDragEnd = useCallback((event: any) => {
 		setInitialMarker(false);
-		setPlaceCoordinates({
+		setViewport((prev: any) => ({
+			...prev,
 			longitude: event.lngLat.lng,
 			latitude: event.lngLat.lat
-		});
+		}));
 	}, []);
 	  
 	return (
 		<>
 			<Marker
-		      longitude={marker.longitude}
-		      latitude={marker.latitude}
+		      longitude={viewport.longitude}
+		      latitude={viewport.latitude}
 		      anchor="bottom"
 		      draggable
-		      onDrag={onMarkerDrag}
 		      onDragEnd={onMarkerDragEnd}
 		    >
 		      <img 
 			      style={{width: "25px"}} 
-			      src="static/main/maps/marker.svg" 
+			      src={process.env.PUBLIC_URL + "/static/icons/pin.svg"} 
 			      alt="marker"
 		     />
 		    </Marker>

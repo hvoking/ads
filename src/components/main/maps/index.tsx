@@ -1,7 +1,6 @@
 // App imports
 import { MapHeader } from './header';
 import { SvgMap } from './svgMap';
-import { BasemapsSelectors } from './basemaps';
 import { MapContainer } from './map';
 import './styles.scss';
 
@@ -11,7 +10,6 @@ export const Maps = () => {
 			<MapHeader/>
 			<SvgMap/>
 			<MapContainer/>
-			<BasemapsSelectors/>
 		</div>
 	)
 }

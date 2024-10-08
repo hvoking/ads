@@ -2,11 +2,11 @@
 import { PolygonApiProvider } from './polygon';
 import { GoogleApiProvider } from './google';
 import { ImoveisApiProvider } from './imoveis';
-import { IsoPolygonApiProvider } from './isoPolygon';
+import { IsochroneApiProvider } from './isochrone';
 
 export const ApiProvider = ({children}: any) => {
   return (
-    <IsoPolygonApiProvider>
+    <IsochroneApiProvider>
     <PolygonApiProvider>
     <GoogleApiProvider>
     <ImoveisApiProvider>
@@ -14,7 +14,7 @@ export const ApiProvider = ({children}: any) => {
     </ImoveisApiProvider>
     </GoogleApiProvider>
     </PolygonApiProvider>
-    </IsoPolygonApiProvider>
+    </IsochroneApiProvider>
   )
 }
 

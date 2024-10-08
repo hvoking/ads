@@ -9,7 +9,7 @@ export const UserMessage = () => {
 			</div>
 			<img 
 				className="m2b-starting-gif" 
-				src="static/main/gif/marker_move.gif" 
+				src={process.env.PUBLIC_URL + "/static/message/marker_move.gif"} 
 				alt="marker_move"
 			/>
 		</div>

@@ -46,6 +46,6 @@ $background-color: rgba(33, 33, 43, 1);
 .user-message-wrapper {
 	display: grid; 
 	height: 100%;
-	grid-template-rows: 30px min-content auto;
+	grid-template-rows: min-content auto;
 	grid-gap: 10px;
 }

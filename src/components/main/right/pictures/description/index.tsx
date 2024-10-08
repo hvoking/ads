@@ -37,7 +37,7 @@ export const Description = ({ item, setRejectedIds, setCurrentPropertyId }: any)
 			</div>
 			<img
 				className="pdf-cancel-cross"
-				src="static/logos/cancel_search.svg" 
+				src={process.env.PUBLIC_URL + "/static/icons/cancel.svg"} 
 				alt="search-icon"
 				onClick={(e: any) => addId(e, item)}
 			/>

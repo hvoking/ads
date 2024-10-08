@@ -2,7 +2,7 @@
 import './styles.scss';
 
 export const Symbols = ({ item }: any) => {
-	const imagePath = "static/main/prices/header/";
+	const imagePath = process.env.PUBLIC_URL + "/static/symbols/";
 
 	return (
 		<div className="pdf-pictures-symbols">

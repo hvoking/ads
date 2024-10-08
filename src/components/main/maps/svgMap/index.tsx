@@ -7,7 +7,7 @@ import './styles.scss';
 
 // Context imports
 import { usePolygonApi } from '../../../context/api/polygon';
-import { useIsoPolygonApi } from '../../../context/api/isoPolygon';
+import { useIsochroneApi } from '../../../context/api/isochrone';
 import { useSvgMapSizes } from '../../../context/sizes/svgMap';
 import { useGeo } from '../../../context/filters/geo';
 
@@ -18,14 +18,14 @@ export const SvgMap = () => {
 	const svgContainerRef = useRef<any>(null);
 
 	const { polygonData } = usePolygonApi();
-	const { isoPolygonData } = useIsoPolygonApi();
+	const { isochroneData } = useIsochroneApi();
 	const { innerWidth, innerHeight } = useSvgMapSizes();
-	const { setPlaceCoordinates } = useGeo();
+	const { setViewport } = useGeo();
 
-	if (!isoPolygonData || !polygonData || !polygonData[0] || !polygonData[0].city_geom) return (<></>)
+	if (!isochroneData || !polygonData || !polygonData[0] || !polygonData[0].city_geom) return (<></>)
 
 	const city = polygonData[0].city_geom[0];
-	const polygon = isoPolygonData.features[0].geometry;
+	const polygon = isochroneData.features[0].geometry;
 
 	const projection = d3.geoIdentity()
 		.reflectY(true)
@@ -37,7 +37,7 @@ export const SvgMap = () => {
 		const rect = svgContainerRef.current.getBoundingClientRect();
 		const adjustedCoordinates: any = [e.clientX - rect.left, e.clientY - rect.top];
 	    const [lng, lat]: any = projection.invert(adjustedCoordinates);
-	    setPlaceCoordinates({ latitude: lat, longitude: lng });
+	    setViewport((prev: any) => ({...prev, latitude: lat, longitude: lng }));
 	}
 
 	return (

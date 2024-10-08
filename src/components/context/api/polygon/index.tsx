@@ -3,7 +3,7 @@ import { useState, useEffect, useContext, createContext } from 'react';
 
 // Context imports
 import { useGeo } from '../../filters/geo';
-import { useIsoPolygonApi } from '../isoPolygon';
+import { useIsochroneApi } from '../isochrone';
 
 const PolygonApiContext: React.Context<any> = createContext(null)
 
@@ -14,8 +14,8 @@ export const usePolygonApi = () => {
 }
 
 export const PolygonApiProvider = ({children}: any) => {
-	const { placeCoordinates } = useGeo();
-	const { isoPolygonData } = useIsoPolygonApi();
+	const { viewport } = useGeo();
+	const { isochroneData } = useIsochroneApi();
 
 	const [ polygonData, setPolygonData ] = useState<any>(null);
 
@@ -25,9 +25,9 @@ export const PolygonApiProvider = ({children}: any) => {
 				method: "POST",
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify({ 
-					"polygon": JSON.stringify(isoPolygonData.features[0].geometry),
-					"longitude": JSON.stringify(placeCoordinates.longitude),
-					"latitude": JSON.stringify(placeCoordinates.latitude),
+					"polygon": JSON.stringify(isochroneData.features[0].geometry),
+					"longitude": JSON.stringify(viewport.longitude),
+					"latitude": JSON.stringify(viewport.latitude),
 					"schema": "limites",
 					"table": "municipios_br",
 				}),
@@ -35,8 +35,8 @@ export const PolygonApiProvider = ({children}: any) => {
 			const receivedData = await res.json();
 			setPolygonData(receivedData[0]);
 		}
-		isoPolygonData && fetchData();
-	}, [ isoPolygonData ]);
+		isochroneData && fetchData();
+	}, [ isochroneData ]);
 
 	return (
 		<PolygonApiContext.Provider value={{ polygonData }}>

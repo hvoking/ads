@@ -49,8 +49,8 @@ export const AdvertiserLayerProvider = ({children}: any) => {
 		return (leftPosition < d[currentPriceString] && d[currentPriceString] < rightPosition)
 	});
 
-	const iconMapping = 'static/main/advertiser/location-icon-mapping.json';
-	const iconAtlas = 'static/main/advertiser/location-icon-atlas.png';
+	const iconMapping = process.env.PUBLIC_URL + '/static/advertiser/location-icon-mapping.json';
+	const iconAtlas = process.env.PUBLIC_URL + '/static/advertiser/location-icon-atlas.png';
 
 	const maxCount: any = advertiserCount && d3.max(Object.values(advertiserCount))
 
@@ -59,7 +59,7 @@ export const AdvertiserLayerProvider = ({children}: any) => {
 			.range([3, 12])
 			.domain([1, maxCount])
 	
-	const defaultImage = "static/main/advertiser/on_error.webp";
+	const defaultImage = process.env.PUBLIC_URL + "/static/advertiser/on_error.webp";
 	const defaultPath = window.location.origin +  defaultImage;
 
 	const advertiserLayer = advertiserData &&

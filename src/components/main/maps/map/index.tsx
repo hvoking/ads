@@ -2,17 +2,15 @@
 import { useCallback } from 'react';
 
 // App imports
-import { Controllers } from './controllers';
 import { Pin } from './pin';
 import { Layers } from './layers';
-import { IsoPolygon } from './iso';
+import { Isochrone } from './iso';
 import { HeatmapLayer } from './heatmap';
-import { Buildings } from './buildings';
 
 // Context imports
 import { useMapbox } from '../../../context/maps/mapbox';
 import { useGeo } from '../../../context/filters/geo';
-import { useIsoPolygonApi } from '../../../context/api/isoPolygon';
+import { useIsochroneApi } from '../../../context/api/isochrone';
 
 // Third-party imports
 import { Map } from 'react-map-gl';
@@ -21,7 +19,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 export const MapContainer = () => {
 	const { mapRef, currentBasemap } = useMapbox();
 	const { viewport, setMarker, setPlaceCoordinates } = useGeo();
-	const { setInitialMarker } = useIsoPolygonApi();
+	const { setInitialMarker } = useIsochroneApi();
 
 	const onDblClick = useCallback((event: any) => {
 		const lng = event.lngLat.lng;
@@ -42,12 +40,10 @@ export const MapContainer = () => {
 			antialias={true}
 			preserveDrawingBuffer={true}
 		>
-			<IsoPolygon/>
-			<Buildings/>
+			<Isochrone/>
 			<HeatmapLayer/>
 			<Layers/>
 			<Pin/>
-			<Controllers/>
 		</Map>
 	)
 }
