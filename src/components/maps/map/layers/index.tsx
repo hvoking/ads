@@ -1,9 +1,9 @@
 // Layers imports
-import { useArcLayer } from '../../../../context/maps/layers/arc';
-import { useAdvertiserLayer } from '../../../../context/maps/layers/advertiser';
+import { useArcLayer } from 'context/maps/layers/arc';
+import { useAdvertiserLayer } from 'context/maps/layers/advertiser';
 
 // Third-party imports
-import { useControl } from 'react-map-gl';
+import { useControl } from 'react-map-gl/mapbox';
 import { MapboxOverlay } from '@deck.gl/mapbox/typed';
 import type { DeckProps } from '@deck.gl/core/typed';
 

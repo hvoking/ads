@@ -17,7 +17,7 @@ export const useGoogleDetailsApi = () => {
 }
 
 export const GoogleDetailsApiProvider = ({children}: any) => {
-	const { placeId, setPlaceCoordinates, setCityId } = useGeo();
+	const { placeId, setViewport, setCityId } = useGeo();
 	const { setInitialMarker } = useIsochroneApi();
 	const [ googleDetailsData, setGoogleDetailsData ] = useState<any>(null);
 	
@@ -50,7 +50,7 @@ export const GoogleDetailsApiProvider = ({children}: any) => {
 			    break;
 			  }
 			}
-			setPlaceCoordinates({longitude: longitude, latitude: latitude});
+			setViewport((prev: any) => ({...prev, longitude, latitude}));
 			setInitialMarker(false);
 		}
 	}, [ googleDetailsData ])

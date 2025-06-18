@@ -22,8 +22,7 @@ export const GeoProvider = ({children}: any) => {
 
 	const [ geocodingLongitude, setGeocodingLongitude ] = useState<any>(null);
 	const [ geocodingLatitude, setGeocodingLatitude ] = useState<any>(null);
-
-	const [ currentBasemap, setCurrentBasemap ] = useState("mapbox://styles/generativa/clhqor7c101lh01pe52myfwik");
+	const [ currentBasemap, setCurrentBasemap ] = useState("mapbox://styles/hvoking/cmbzyje2c000f01s15h8fer9p");
 
 	useEffect(() => {
 	  mapRef.current?.flyTo({

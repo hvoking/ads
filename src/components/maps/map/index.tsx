@@ -1,5 +1,5 @@
 // React imports
-import { useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
 // App imports
 import { Pin } from './pin';
@@ -12,7 +12,7 @@ import { useGeo } from 'context/geo';
 import { useIsochroneApi } from 'context/api/isochrone';
 
 // Third-party imports
-import { Map } from 'react-map-gl';
+import { Map } from 'react-map-gl/mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 export const MapContainer = () => {
@@ -27,6 +27,10 @@ export const MapContainer = () => {
 		setMarker({ longitude: lng, latitude: lat });
 	}, []);
 
+	const [ isMapLoaded, setIsMapLoaded ] = useState(false);
+
+	const onMapLoad = () => setIsMapLoaded(true);
+
 	return (
 		<Map
 			ref={mapRef}
@@ -37,11 +41,16 @@ export const MapContainer = () => {
 			doubleClickZoom={false}
 			antialias={true}
 			preserveDrawingBuffer={true}
+			onLoad={onMapLoad}
 		>
-			<Isochrone/>
-			<HeatmapLayer/>
-			<Layers/>
-			<Pin/>
+			{isMapLoaded &&
+				<>
+					<Isochrone/>
+					<HeatmapLayer/>
+					<Layers/>
+					<Pin/>
+				</>
+			}
 		</Map>
 	)
 }

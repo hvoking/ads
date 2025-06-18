@@ -7,12 +7,10 @@ import './styles.scss';
 
 // Context imports
 import { useGoogleSearchApi } from 'context/api/google/search';
-import { usePdf } from 'context/filters/pdf';
 import { useGeo } from 'context/geo';
 
 export const Search = ({ activeSearch, setActiveSearch }: any) => {
 	const { setPlaceId } = useGeo();
-	const { setActivePdf } = usePdf();
 	const { googleSearchData, searchText, setSearchText } = useGoogleSearchApi();
 
 	const [ suggestionIndex, setSuggestionIndex ] = useState(0);
@@ -115,7 +113,6 @@ export const Search = ({ activeSearch, setActiveSearch }: any) => {
 						onKeyDown={handleKeyDown}
 						spellCheck={false}
 						ref={inputRef}
-						onFocus={() => setActivePdf(false)}
 					/>
 					<div className="cancel-cross-wrapper">
 						<img

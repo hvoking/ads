@@ -1,8 +1,8 @@
 // Context imports
-import { useIsochroneApi } from '../../../../context/api/isochrone';
+import { useIsochroneApi } from 'context/api/isochrone';
 
 // Third party imports
-import { Source, Layer } from 'react-map-gl';
+import { Source, Layer } from 'react-map-gl/mapbox';
 
 export const Isochrone = () => {
 	const { isochroneData } = useIsochroneApi();

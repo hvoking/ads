@@ -1,9 +1,9 @@
 // Context imports
-import { useHistPointsApi } from '../../../../context/api/imoveis/histPoints';
-import { useCategory } from '../../../../context/filters/category';
+import { useHistPointsApi } from 'context/api/imoveis/histPoints';
+import { useCategory } from 'context/filters/category';
 
 // Third party imports
-import { Source, Layer } from 'react-map-gl';
+import { Source, Layer } from 'react-map-gl/mapbox';
 
 export const HeatmapLayer = () => {
 	const { histPointsData } = useHistPointsApi();

@@ -9,7 +9,7 @@ import { useGeo } from 'context/geo';
 import { useIsochroneApi } from 'context/api/isochrone';
 
 // Third-party imports
-import { Marker } from 'react-map-gl';
+import { Marker } from 'react-map-gl/mapbox';
 
 export const Pin = () => {
 	const { initialMarker, setInitialMarker } = useIsochroneApi();
@@ -29,7 +29,6 @@ export const Pin = () => {
 			<Marker
 		      longitude={viewport.longitude}
 		      latitude={viewport.latitude}
-		      anchor="bottom"
 		      draggable
 		      onDragEnd={onMarkerDragEnd}
 		    >
