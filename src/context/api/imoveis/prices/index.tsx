@@ -1,8 +1,8 @@
 // React imports
 import { useState, useEffect, useContext, createContext } from 'react';
 
-// App imports
-import { datesFormat } from 'components/utils/constants';
+// Utils imports
+import { datesFormat } from 'utils/constants';
 
 // Context imports
 import { usePolygonApi } from 'context/api/polygon';

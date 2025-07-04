@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Ubuntu';
+  background-color: rgba(23, 23, 32, 1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color:transparent;
+}
+.App {
+  overflow: hidden;
+  background-color: rgba(23, 23, 32, 1);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 5fr 14fr 5fr;
+  padding: 5px;
+  grid-gap: 5px;
+}
+.bottom {
+  overflow: hidden;
+  display: none;
+}
+.main-bottom {
+  display: none;
+}
+// mobile-style
+@media screen and (max-width: 1000px) {
+  .App {
+    grid-template-columns: auto;
+    grid-template-rows: 3fr 2fr;
+  }
+  .main-bottom {
+    display: flex;
+    background-color: rgba(255, 255, 255, 1);
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .prices {
+    display: none;
+  }
+  .left {
+    display: none;
+  }
+  .right {
+    display: none;
+  }
+  .bottom {
+    display: block;
+  }
+}

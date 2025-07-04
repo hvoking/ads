@@ -6,7 +6,7 @@ import { useGeo } from 'context/geo';
 import { useIsochroneApi } from 'context/api/isochrone';
 
 // Variable imports
-import { cities, data } from 'components/utils/cities';
+import { cities, data } from 'utils/cities';
 
 const GoogleDetailsApiContext: React.Context<any> = createContext(null)
 

@@ -6,7 +6,7 @@ import { SizesProvider } from './sizes';
 import { LimitsProvider } from './limits';
 import { GeoProvider } from './geo';
 
-export const MainProvider = ({children}: any) => {
+export const ContextProvider = ({children}: any) => {
   return (
     <GeoProvider>
     <FiltersProvider>
@@ -24,4 +24,4 @@ export const MainProvider = ({children}: any) => {
   )
 }
 
-MainProvider.displayName="MainProvider";
+ContextProvider.displayName="ContextProvider";
